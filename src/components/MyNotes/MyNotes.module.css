@@ -1,4 +1,5 @@
 .container {
+  display: none;
   flex-grow: 1;
   background: #f1f5f9;
   min-height: 100vh;
@@ -63,7 +64,6 @@
 
 .wrapper {
   width: 100%;
-  margin: 20px auto;
   background: #1a4ed0;
   padding: 24px 50px;
   position: absolute;
@@ -99,4 +99,27 @@
   font-size: 24px;
   color: #1a4ed0;
   cursor: pointer;
+}
+
+
+@media screen and (min-width: 640px){
+   .container{
+    display: block;
+   }
+}
+
+@media screen and (min-width: 768px){
+   
+}
+
+@media screen and (min-width: 1024px){
+
+}
+
+@media screen and (min-width: 1280px){
+
+}
+
+@media screen and (min-width: 1536px){
+
 }
