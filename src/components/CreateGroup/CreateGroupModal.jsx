@@ -49,30 +49,34 @@ const CreateGroupModal = ({ showModel, setShowModel }) => {
           <div className={styles.modal}>
             <h3>Create New group</h3>
 
-            <div className={styles.inputStyle}>
-              <label>Group Name</label>
-              <input
-                type="text"
-                placeholder="Enter group name"
-                value={groupName}
-                onChange={(e) => setGroupName(e.target.value)}
-                className="rounded-2xl border"
-              />
-            </div>
-
-            <div className={styles.inputStyle}>
-              <label>Choose colour</label>
-              <div className={styles.colorOptions}>
-                {colors.map((c, i) => (
-                  <span
-                    key={i}
-                    className={`${styles.colorCircle} ${
-                      selectedColor === c ? styles.selected : ""
-                    }`}
-                    style={{ backgroundColor: c }}
-                    onClick={() => setSelectedColor(c)}
+            <div className={styles.container}>
+              <div className={styles.inputStyle}>
+                <label className={styles.label1}>Group Name</label>
+                <div className={styles.inputContainer}>
+                  <input
+                    type="text"
+                    placeholder="Enter group name"
+                    value={groupName}
+                    onChange={(e) => setGroupName(e.target.value)}
+                    className="rounded-2xl border"
                   />
-                ))}
+                </div>
+              </div>
+
+              <div className={styles.inputStyle}>
+                <label className={styles.label2}>Choose colour</label>
+                <div className={styles.colorOptions}>
+                  {colors.map((c, i) => (
+                    <span
+                      key={i}
+                      className={`${styles.colorCircle} ${
+                        selectedColor === c ? styles.selected : ""
+                      }`}
+                      style={{ backgroundColor: c }}
+                      onClick={() => setSelectedColor(c)}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
 

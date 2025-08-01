@@ -13,18 +13,24 @@
 
 .modal {
   background: white;
-  padding: 20px;
+  padding-left: 19px;
+  padding-right: 19px;
+  padding-bottom: 28px;
+  padding-top: 10px;
   border-radius: 8px;
-  width: 288px;
+  width: 284px;
+  height: 211px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .modal h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 18.4px;
+  font-weight: 500;
+  width: 158px;
+  height: 29px;
+  display: flex;
+  align-items: center;
 }
 
 .inputStyle {
@@ -34,33 +40,65 @@
   gap: 10px;
 }
 
-.modal label {
-  width: 130px;
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.modal input {
+.label1 {
+  width: 87px;
+  height: 23px;
+  font-size: 14.6px;
+  font-weight: 500;
+  display: flex;
   align-items: center;
-  border: 1px solid gray;
-  border-radius: 20px;
-  flex-grow: 1;
-  padding: 5px;
-  padding-left: 12px;
+}
+
+.label2 {
+  width: 101px;
+  height: 23px;
+  font-size: 14.6px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.inputContainer {
   border: 2px solid #ccc;
-  border-radius: 40px;
+  border-radius: 11px;
+  width: 150px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  gap: 10px;
+}
+
+.inputContainer input {
+  border: none;
+  font-size: 10px;
+  line-height: 23px;
+  width: 85px;
+  height: 16px;
+  line-height: 16px;
+  outline: none;
+}
+
+.inputContainer input::placeholder {
+  color: #979797;
+  font-size: 10px;
 }
 
 .colorOptions {
   display: flex;
-  gap: 10px;
+  gap: 5.3px;
   margin: 5px 0;
 }
 
 .colorCircle {
-  width: 25px;
-  height: 25px;
+  width: 17.67px;
+  height: 17.67px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -71,19 +109,20 @@
 
 .createBtn {
   display: flex;
-  justify-content: end;
+  justify-content: center;
 }
 
 .createBtn button {
-  background: #001f8b;
-  max-width: 100px;
+  width: 186px;
+  height: 32px;
+  background: #16008b;
   color: white;
   border: none;
   padding: 4px 27px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 13px;
-  margin-top: 10px;
+  font-size: 17px;
+  margin-top: 19.5px;
 }
 
 .fab {
@@ -103,8 +142,65 @@
   transition: 0.2s;
 }
 
-@media screen and (min-width: 640px) {
-  .model {
-    width: 450px;
+@media screen and (min-width: 1024px) {
+  .modal {
+    width: 740px;
+    height: 317px;
+    padding-left: 51px;
+    padding-right: 51px;
+    padding-bottom: 16px;
+    padding-top: 35px;
+  }
+
+  .modal h3 {
+    font-size: 29px;
+    width: 248px;
+    height: 46px;
+    margin-bottom: 14px;
+  }
+
+  .container {
+    gap: 35px;
+  }
+
+  .inputContainer {
+    border-radius: 22px;
+    width: 435px;
+    height: 51px;
+    padding-left: 28px;
+  }
+
+  .inputContainer input {
+    width: 194px;
+    height: 37px;
+    line-height: 37px;
+    font-size: 23px;
+  }
+
+  .inputContainer input::placeholder {
+    color: #979797;
+    font-size: 23px;
+  }
+
+  .label1 {
+    width: 162px;
+    height: 44px;
+    font-size: 27.31px;
+  }
+
+  .label2 {
+    width: 189px;
+    height: 44px;
+    font-size: 27.31px;
+  }
+
+  .colorOptions {
+    display: flex;
+    gap: 11px;
+  }
+
+  .colorCircle {
+    width: 40px;
+    height: 40px;
   }
 }
