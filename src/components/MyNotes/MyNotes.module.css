@@ -1,0 +1,133 @@
+.container {
+  flex-grow: 1;
+  background: #f1f5f9;
+  min-height: 100vh;
+  position: relative;
+}
+
+.navbar {
+  height: 66px;
+  background: #1a4ed0;
+  color: white;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: white;
+  background: #000;
+  font-weight: bold;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.name {
+  height: 20px;
+  font-size: 16.72px;
+}
+
+.noteCard {
+  background: white;
+  height: 270px;
+  margin: 20px auto;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 0px 15px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.noteCard p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.noteFooter {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 12px;
+  color: #555;
+}
+
+.inputWrapper {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.wrapper {
+  width: 100%;
+  background: #1a4ed0;
+  padding: 24px 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.textarea {
+  display: flex;
+  width: 100%;
+  max-width: 1070px;
+  margin: auto;
+  height: 110px;
+  border: none;
+  outline: none;
+  resize: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+}
+
+.textarea::placeholder {
+  color: #999;
+}
+
+.sendBtn {
+  position: absolute;
+  bottom: 14px;
+  right: 29px;
+  font-size: 24px;
+  color: #1a4ed0;
+  cursor: pointer;
+}
+
+.backBtn {
+  display: block;
+}
+
+@media screen and (min-width: 640px) {
+  .container {
+    display: block;
+  }
+
+  .backBtn {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1280px) {
+}
+
+@media screen and (min-width: 1536px) {
+}
