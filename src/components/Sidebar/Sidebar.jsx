@@ -3,7 +3,7 @@ import styles from "./Sidebar.module.css";
 import { AddIcon } from "../../assets/Icons";
 import CreateGroupModal from "../CreateGroup/CreateGroupModal";
 
-const Sidebar = ({ groups }) => {
+const Sidebar = ({ setNotesCliked, groups, addGroup }) => {
   const [showModel, setShowModel] = useState(false);
 
   return (
@@ -12,7 +12,11 @@ const Sidebar = ({ groups }) => {
 
       <ul className={styles.groupList}>
         {groups?.map((grp, index) => (
-          <li key={index} className={styles.groupItem}>
+          <li
+            key={index}
+            className={styles.groupItem}
+            onClick={() => setNotesCliked(grp.name)}
+          >
             <div
               className={styles.avatar}
               style={{ backgroundColor: grp.color }}

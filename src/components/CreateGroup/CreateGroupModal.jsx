@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./CreateGroupModal.module.css";
+import { AddIcon } from "../../assets/Icons";
 
 const colors = [
   "#d88afc",
@@ -41,7 +42,7 @@ const CreateGroupModal = ({ showModel, setShowModel }) => {
           setShowModel((prev) => !prev);
         }}
       >
-        +
+        <AddIcon className={styles.addIcon}/>
       </button>
 
       {showModel && (

@@ -31,6 +31,7 @@
   height: 29px;
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .inputStyle {
@@ -38,12 +39,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  margin-bottom: 17px;
 }
 
 .label1 {
@@ -62,6 +58,7 @@
   font-weight: 500;
   display: flex;
   align-items: center;
+  /* margin-bottom: 34px; */
 }
 
 .inputContainer {
@@ -122,15 +119,15 @@
   border-radius: 6px;
   cursor: pointer;
   font-size: 17px;
-  margin-top: 19.5px;
+  margin-top: 17px;
 }
 
 .fab {
   position: absolute;
+  width: 75px;
+  height: 75px;
   bottom: 20px;
   right: 20px;
-  width: 60px;
-  height: 60px;
   border-radius: 50%;
   background: #2d2de8;
   color: white;
@@ -140,6 +137,15 @@
   cursor: pointer;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addIcon {
+  width: 23px;
+  height: 39px;
+  font-size: 40px;
 }
 
 @media screen and (min-width: 1024px) {

@@ -14,6 +14,7 @@ function App() {
     { initials: "PN", name: "Python Notes", color: "#d97df0" },
   ];
   const [groupsState, setGroupsState] = useState(groups);
+  const [notesCliked, setNotesCliked] = useState("");
 
   const addGroup = (newGroup) => {
     setGroupsState((prev) => [...prev, newGroup]);
@@ -21,8 +22,19 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <Sidebar groups={groupsState} addGroup={addGroup} />
-      <MyNotes />
+      <div
+        className={
+          notesCliked? styles.sidebarNone : styles.sidebarBlock
+        }
+      >
+        <Sidebar
+          notesCliked={notesCliked}
+          setNotesCliked={setNotesCliked}
+          groups={groupsState}
+          addGroup={addGroup}
+        />
+      </div>
+      <MyNotes notesCliked={notesCliked} />
     </div>
   );
 }

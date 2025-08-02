@@ -1,5 +1,4 @@
 .container {
-  display: none;
   flex-grow: 1;
   background: #f1f5f9;
   min-height: 100vh;
@@ -7,6 +6,7 @@
 }
 
 .navbar {
+  height: 66px;
   background: #1a4ed0;
   color: white;
   padding: 15px 20px;
@@ -18,8 +18,8 @@
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   color: white;
   background: #000;
@@ -31,13 +31,18 @@
   margin-right: 12px;
 }
 
+.name {
+  height: 20px;
+  font-size: 16.72px;
+}
+
 .noteCard {
   background: white;
-  width: 90%;
-  max-width: 1070px;
+  height: 270px;
   margin: 20px auto;
   border-radius: 6px;
   padding: 15px;
+  margin: 0px 15px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -101,25 +106,20 @@
   cursor: pointer;
 }
 
-
-@media screen and (min-width: 640px){
-   .container{
+@media screen and (min-width: 640px) {
+  .container {
     display: block;
-   }
+  }
 }
 
-@media screen and (min-width: 768px){
-   
+@media screen and (min-width: 768px) {
 }
 
-@media screen and (min-width: 1024px){
-
+@media screen and (min-width: 1024px) {
 }
 
-@media screen and (min-width: 1280px){
-
+@media screen and (min-width: 1280px) {
 }
 
-@media screen and (min-width: 1536px){
-
+@media screen and (min-width: 1536px) {
 }

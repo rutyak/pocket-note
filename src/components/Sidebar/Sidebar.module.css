@@ -11,14 +11,13 @@
 
 .title {
   font-weight: semibold;
-  font-size: 28px;
-  padding-left: 45px;
-  padding-top: 40px;
-  padding-bottom: 20px;
+  font-size: 31.52px;
+  padding-left: 46px;
+  padding-right: 117px;
+  padding-top: 50px;
+  padding-bottom: 10px;
   font-weight: 500;
-  display: flex;
   align-items: center;
-  justify-content: start;
 }
 
 .groupList {
@@ -31,11 +30,12 @@
 .groupItem {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 36px;
+  gap: 17.8px;
+  padding: 13px 36px;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
+
 }
 
 .groupItem:hover {
@@ -43,8 +43,8 @@
 }
 
 .avatar {
-  width: 53px;
-  height: 53px;
+  width: 62.01px;
+  height: 62.01px;
   border-radius: 50%;
   color: white;
   font-weight: 400;
@@ -52,18 +52,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 12px;
 }
 
 .groupName {
-  font-size: 18px;
+  font-size: 18.6px;
+  height: 22;
   font-weight: 500;
   color: black;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 .fab:hover {
   background: #1a1abf;

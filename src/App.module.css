@@ -10,4 +10,10 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.sidebarNone{
+  display: none;
+}
 
+.sidebarBlock{
+  display: block;
+}
