@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Sidebar.module.css";
-import CreateGroupModal from "../CreateGroup/CreateGroupModal";
 import axios from "axios";
+import { useGroups } from "../../context/GroupContext";
+import CreateGroupModal from "../CreateGroup/CreateGroupModal";
+import { FiPlus } from "react-icons/fi";
 
-const Sidebar = ({ setNotesCliked }) => {
-  const [groups, setGroups] = useState([
-    { initials: "MN", name: "My Notes", color: "#4a6cf7" },
-  ]);
+const base_url = import.meta.env.VITE_APP_BACKEND_URL;
+
+const Sidebar = () => {
+  const { groups, setGroups, notesClicked, setNotesClicked } = useGroups();
+
   const [showModel, setShowModel] = useState(false);
 
   useEffect(() => {
     const fetchGroups = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/groups");
-        const data = await res.json();
-        setGroups(data);
+        const res = await axios.get(`${base_url}/groups`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setGroups(res?.data);
       } catch (err) {
         console.error("Error fetching groups:", err);
       }
@@ -25,15 +31,27 @@ const Sidebar = ({ setNotesCliked }) => {
   }, []);
 
   return (
-    <div className={styles.sidebar}>
+    <div
+      className={`${styles.sidebar} ${
+        notesClicked ? styles.groupsClose : styles.groupsOpen
+      }`}
+    >
       <h2 className={styles.title}>Pocket Notes</h2>
 
       <ul className={styles.groupList}>
         {groups?.map((grp, index) => (
           <li
             key={index}
-            className={styles.groupItem}
-            onClick={() => setNotesCliked(grp.name)}
+            className={`${styles.groupItem} ${
+              notesClicked?.name === grp.name ? styles.active : ""
+            }`}
+            onClick={() =>
+              setNotesClicked({
+                initials: grp.initials,
+                color: grp.color,
+                name: grp.name,
+              })
+            }
           >
             <div
               className={styles.avatar}
@@ -45,6 +63,10 @@ const Sidebar = ({ setNotesCliked }) => {
           </li>
         ))}
       </ul>
+
+      <button className={styles.fab} onClick={() => setShowModel(true)}>
+        <FiPlus size={28} />
+      </button>
 
       <CreateGroupModal showModel={showModel} setShowModel={setShowModel} />
     </div>

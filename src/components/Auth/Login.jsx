@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+const base_url = import.meta.env.VITE_APP_BACKEND_URL;
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +18,7 @@ const Login = () => {
     try {
       setLoading(true);
 
-      const { data } = await axios.post("http://localhost:5000/login", {
+      const { data } = await axios.post(`${base_url}/login`, {
         email,
         password,
       });
@@ -24,7 +26,7 @@ const Login = () => {
       if (data.token) {
         localStorage.setItem("token", data.token); 
         toast.success("Login successful!", { autoClose: 2000 });
-        navigate("/app"); 
+        navigate("/dashboard"); 
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Invalid credentials", {
@@ -58,7 +60,7 @@ const Login = () => {
         </button>
         <p className={styles.switch}>
           Don’t have an account?{" "}
-          <span onClick={() => navigate("/signup")}>Sign Up</span>
+          <span onClick={() => navigate("/register")}>Register</span>
         </p>
       </form>
     </div>

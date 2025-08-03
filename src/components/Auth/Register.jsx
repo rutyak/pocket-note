@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+const base_url = import.meta.env.VITE_APP_BACKEND_URL;
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +19,7 @@ const Register = () => {
     try {
       setLoading(true);
 
-      const { data } = await axios.post("http://localhost:5000/register", {
+      const { data } = await axios.post(`${base_url}/register`, {
         name,
         email,
         password,
@@ -64,7 +66,7 @@ const Register = () => {
           required
         />
         <button type="submit" disabled={loading}>
-          {loading ? "Signing up..." : "Sign Up"}
+          {loading ? "Loading..." : "Register"}
         </button>
         <p className={styles.switch}>
           Already have an account?{" "}

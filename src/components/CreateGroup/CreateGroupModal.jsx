@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import styles from "./CreateGroupModal.module.css";
 import { AddIcon } from "../../assets/Icons";
+import { toast } from "react-toastify";
+import { useGroups } from "../../context/GroupContext";
+
+const base_url = import.meta.env.VITE_APP_BACKEND_URL;
 
 const colors = [
   "#d88afc",
@@ -17,34 +21,49 @@ const CreateGroupModal = ({ showModel, setShowModel, onGroupCreated }) => {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [loading, setLoading] = useState(false);
 
-  // 🔑 call backend API
+  const { setGroups } = useGroups(); 
+
   const handleCreate = async () => {
-    if (!groupName.trim()) return alert("Enter a group name");
+    if (!groupName.trim()) return toast.error("Enter a group name");
 
     const initials = groupName
       .split(" ")
-      .map((w) => w[0].toUpperCase())
+      .map((w) => w[0]?.toUpperCase())
       .slice(0, 2)
       .join("");
 
+    console.log("initials", initials);
+    
     try {
       setLoading(true);
 
       const token = localStorage.getItem("token");
 
-      const { data } = await axios.post("http://localhost:5000/api/groups", {
-        initials,
-        name: groupName,
-        color: selectedColor,
-      });
+      const { data } = await axios.post(
+        `${base_url}/create/group`,
+        {
+          initials,
+          name: groupName,
+          color: selectedColor,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setGroups((prev) => [data, ...prev]);
 
       if (onGroupCreated) onGroupCreated(data);
 
       setGroupName("");
       setSelectedColor(colors[0]);
       setShowModel(false);
+
+      toast.success("Group created successfully!");
     } catch (error) {
-      alert(
+      toast.error(
         error.response?.data?.message ||
           "Something went wrong while creating group"
       );
@@ -55,22 +74,9 @@ const CreateGroupModal = ({ showModel, setShowModel, onGroupCreated }) => {
 
   return (
     <>
-      <button
-        className={styles.fab}
-        onClick={() => setShowModel((prev) => !prev)}
-      >
-        <AddIcon className={styles.addIcon} />
-      </button>
-
       {showModel && (
-        <div
-          className={styles.overlay}
-          onClick={() => setShowModel(false)} // 👈 close on side click
-        >
-          <div
-            className={styles.modal}
-            onClick={(e) => e.stopPropagation()} // 👈 prevent close when clicking inside modal
-          >
+        <div className={styles.overlay} onClick={() => setShowModel(false)}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <h3>Create New Group</h3>
 
             <div className={styles.container}>

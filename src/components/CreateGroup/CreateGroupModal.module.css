@@ -76,7 +76,7 @@
   border: none;
   font-size: 10px;
   line-height: 23px;
-  width: 85px;
+  min-width: 85px;
   height: 16px;
   line-height: 16px;
   outline: none;
@@ -106,7 +106,7 @@
 
 .createBtn {
   display: flex;
-  justify-content: center;
+  justify-content: end;
 }
 
 .createBtn button {
@@ -125,7 +125,7 @@
 .fab {
   position: fixed;
   bottom: 20px;
-  left: 300px; 
+  left: 300px;
   width: 75px;
   height: 75px;
   border-radius: 50%;
@@ -178,7 +178,7 @@
   }
 
   .inputContainer input {
-    width: 194px;
+    width: auto;
     height: 37px;
     line-height: 37px;
     font-size: 23px;
