@@ -65,7 +65,7 @@
 .fab {
   position: fixed;
   bottom: 22px;
-  left: 290px;
+  left: 295px;
   width: 93px;
   height: 93px;
   border-radius: 50%;
@@ -98,6 +98,8 @@
     position: fixed;
     bottom: 22px;
     right: 22px;
+    width: 75px;
+    height: 75px;
     left: auto;
   }
 
@@ -115,8 +117,8 @@
   }
 
   .avatar {
-    width: 44px;
-    height: 44px;
+    width: 62.01px;
+    height: 62.01px;
     font-size: 20px;
   }
 

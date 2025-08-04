@@ -8,7 +8,7 @@
 }
 
 .navbar {
-  height: 66px;
+  height: 98px;
   background: #1a4ed0;
   color: white;
   padding: 0 20px;
@@ -30,20 +30,20 @@
 }
 
 .logo {
-  width: 42px;
-  height: 42px;
+  width: 68.5px;
+  height: 68.5px;
   border-radius: 50%;
   color: white;
   background: #000;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 24.12px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .name {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 500;
 }
 
@@ -112,7 +112,7 @@
 
 .textarea {
   width: 100%;
-  height: 90px;
+  height: 155px;
   border: none;
   outline: none;
   resize: none;
@@ -144,13 +144,31 @@
   display: block;
 }
 
-.backBtn{
+.backBtn {
   display: none;
 }
 
 @media screen and (max-width: 1024px) {
   .noteOpen {
     display: block;
+  }
+
+  .logo {
+    height: 48px;
+    width: 48px;
+  }
+
+  .textarea {
+    height: 100px;
+  }
+
+  .navbar {
+    height: 66px;
+    width: 100%;
+  }
+
+  .name {
+    font-size: 16.72px;
   }
 
   .noteClose {
@@ -163,7 +181,7 @@
     left: 0;
   }
 
-  .backBtn{
+  .backBtn {
     display: block;
     padding: 0px;
     margin-top: 4px;
