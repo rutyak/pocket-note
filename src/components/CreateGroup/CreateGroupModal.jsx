@@ -31,8 +31,6 @@ const CreateGroupModal = ({ showModel, setShowModel, onGroupCreated }) => {
       .map((w) => w[0]?.toUpperCase())
       .slice(0, 2)
       .join("");
-
-    console.log("initials", initials);
     
     try {
       setLoading(true);
