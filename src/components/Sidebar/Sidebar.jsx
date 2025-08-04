@@ -65,7 +65,7 @@ const Sidebar = () => {
       </ul>
 
       <button className={styles.fab} onClick={() => setShowModel(true)}>
-        <FiPlus size={28} />
+        <FiPlus size={48} />
       </button>
 
       <CreateGroupModal showModel={showModel} setShowModel={setShowModel} />
