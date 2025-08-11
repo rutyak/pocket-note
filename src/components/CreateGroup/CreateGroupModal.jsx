@@ -21,7 +21,7 @@ const CreateGroupModal = ({ showModel, setShowModel, onGroupCreated }) => {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [loading, setLoading] = useState(false);
 
-  const { setGroups } = useGroups(); 
+  const { setGroups } = useGroups();
 
   const handleCreate = async () => {
     if (!groupName.trim()) return toast.error("Enter a group name");
@@ -31,7 +31,7 @@ const CreateGroupModal = ({ showModel, setShowModel, onGroupCreated }) => {
       .map((w) => w[0]?.toUpperCase())
       .slice(0, 2)
       .join("");
-    
+
     try {
       setLoading(true);
 

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./PocketNotes.module.css";
+import { LockIcon } from "../../../assets/Icons";
 
 function PocketNotes() {
   return (
@@ -12,7 +13,9 @@ function PocketNotes() {
           Use Pocket Notes on up to 4 linked devices and 1 mobile phone
         </p>
       </div>
-      <p className={styles.footer}>🔒 end-to-end encrypted</p>
+      <p className={styles.footer}>
+        <LockIcon /> <div>end-to-end encrypted</div>
+      </p>
     </div>
   );
 }

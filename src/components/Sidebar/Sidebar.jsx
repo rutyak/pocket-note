@@ -4,6 +4,7 @@ import axios from "axios";
 import { useGroups } from "../../context/GroupContext";
 import CreateGroupModal from "../CreateGroup/CreateGroupModal";
 import { FiPlus } from "react-icons/fi";
+import { AddIcon } from "../../assets/Icons";
 
 const base_url = import.meta.env.VITE_APP_BACKEND_URL;
 
@@ -65,7 +66,7 @@ const Sidebar = () => {
       </ul>
 
       <button className={styles.fab} onClick={() => setShowModel(true)}>
-        <FiPlus size={48} />
+        <AddIcon className={styles.plusIcon}/>
       </button>
 
       <CreateGroupModal showModel={showModel} setShowModel={setShowModel} />

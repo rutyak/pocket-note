@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./MyNotes.module.css";
 import { CiPaperplane } from "react-icons/ci";
-import { BackArrow } from "../../assets/Icons";
+import { BackArrow, SendIcon } from "../../assets/Icons";
 import { useGroups } from "../../context/GroupContext";
 import { useNavigate } from "react-router-dom";
 
@@ -40,6 +40,7 @@ const MyNotes = () => {
   }, [notesClicked, token]);
 
   const handleSend = async () => {
+    console.log("sned clicked");
     if (!noteText.trim()) return;
 
     const newNote = {
@@ -72,31 +73,33 @@ const MyNotes = () => {
       }`}
     >
       <div className={styles.navbar}>
-        <div className={styles.groupName}>
-          <button
-            onClick={() => setNotesClicked("")}
-            className={styles.backBtn}
-          >
-            <BackArrow />
-          </button>
-          <div
-            className={styles.logo}
-            style={{ backgroundColor: `${notesClicked.color}` }}
-          >
-            {notesClicked.initials}
+        <div className={styles.navbarInner}>
+          <div className={styles.groupName}>
+            <button
+              onClick={() => setNotesClicked("")}
+              className={styles.backBtn}
+            >
+              <BackArrow />
+            </button>
+            <div
+              className={styles.logo}
+              style={{ backgroundColor: `${notesClicked.color}` }}
+            >
+              {notesClicked.initials}
+            </div>
+            <span className={styles.name}>{notesClicked.name}</span>
           </div>
-          <span className={styles.name}>{notesClicked.name}</span>
-        </div>
 
-        <button
-          className={styles.logoutBtn}
-          onClick={() => {
-            localStorage.removeItem("token");
-            navigate("/login");
-          }}
-        >
-          Logout
-        </button>
+          <button
+            className={styles.logoutBtn}
+            onClick={() => {
+              localStorage.removeItem("token");
+              navigate("/login");
+            }}
+          >
+            Logout
+          </button>
+        </div>
       </div>
 
       <div className={styles.noteCardContainer}>
@@ -126,25 +129,28 @@ const MyNotes = () => {
       </div>
 
       <div className={styles.wrapper}>
-        <div style={{ position: "relative" }}>
-          <textarea
-            className={styles.textarea}
-            placeholder="Enter your text here............"
-            value={noteText}
-            onChange={(e) => setNoteText(e.target.value)}
-            disabled={loading}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) {
-                e.preventDefault();
-                handleSend();
-              }
-            }}
-          />
-          <CiPaperplane
-            className={styles.sendBtn}
-            onClick={handleSend}
-            style={{ opacity: loading ? 0.5 : 1 }}
-          />
+        <div className={styles.textareaContainer}>
+          <div style={{ position: "relative" }}>
+            <textarea
+              className={styles.textarea}
+              placeholder="Enter your text here............"
+              value={noteText}
+              onChange={(e) => setNoteText(e.target.value)}
+              disabled={loading}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  handleSend();
+                }
+              }}
+            />
+            <div onClick={handleSend}>
+              <SendIcon
+                className={styles.sendBtn}
+                style={{ opacity: loading ? 0.5 : 1 }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

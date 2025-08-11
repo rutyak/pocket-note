@@ -1,6 +1,6 @@
 .container {
   flex-grow: 1;
-  background: #f1f5f9;
+  background: #dce7f7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,13 +8,20 @@
 }
 
 .navbar {
-  height: 98px;
-  background: #1a4ed0;
+  background: #001f8b;
   color: white;
-  padding: 0 20px;
+  height: 98px;
+  position: sticky;
+  top: 0;
+}
+
+.navbarInner {
+  max-width: 1070px;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 98px;
 }
 
 .navLeft {
@@ -26,12 +33,12 @@
 .groupName {
   display: flex;
   align-items: center;
-  gap: 10px;
+  height: 68.9px;
 }
 
 .logo {
-  width: 68.5px;
-  height: 68.5px;
+  width: 68.9px;
+  height: 68.9px;
   border-radius: 50%;
   color: white;
   background: #000;
@@ -45,6 +52,7 @@
 .name {
   font-size: 24px;
   font-weight: 500;
+  margin-left: 15px;
 }
 
 .logoutBtn {
@@ -67,27 +75,32 @@
 .noteCardContainer {
   flex-grow: 1;
   overflow-y: auto;
-  padding: 16px;
+  padding: 0px 40px;
+  padding-top: 24px;
 }
 
 .noteCardContainer::-webkit-scrollbar {
   width: 6px;
 }
+
 .noteCardContainer::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
 }
 
 .noteCard {
+  max-width: 1022px;
+  margin: auto;
   background: white;
   border-radius: 6px;
-  padding: 14px 16px;
-  margin-bottom: 12px;
+  padding: 28px 10px 13px 13px;
+  margin-bottom: 20px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .noteCard p {
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 1.5;
   color: #333;
 }
@@ -97,14 +110,15 @@
   display: flex;
   justify-content: flex-end;
   gap: 6px;
-  font-size: 12px;
-  color: #555;
+  font-size: 16px;
+  color: #353535;
+  font-weight: 600;
 }
 
 .wrapper {
   width: 100%;
-  background: #1a4ed0;
-  padding: 18px 24px;
+  background: #001f8b;
+  padding: 22px 31px;
   position: sticky;
   bottom: 0;
   left: 0;
@@ -118,21 +132,29 @@
   resize: none;
   border-radius: 6px;
   padding: 12px 40px 12px 12px;
-  font-size: 14px;
+  font-size: 17px;
   color: #333;
   background: #fff;
 }
 
+.textareaContainer {
+  max-width: 1045px;
+  margin: auto;
+}
+
 .textarea::placeholder {
   color: #999;
+  font-size: 23.8px;
 }
 
 .sendBtn {
-  position: fixed;
-  bottom: 26px;
-  right: 38px;
+  width: 34.4px;
+  height: 29px;
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
   font-size: 22px;
-  color: #1a4ed0;
+  color: #001f8b;
   cursor: pointer;
 }
 
@@ -148,18 +170,39 @@
   display: none;
 }
 
+@media screen and (max-width: 1535px) {
+  .navbarInner {
+    padding: 0px 17px;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .noteOpen {
     display: block;
   }
 
-  .logo {
-    height: 48px;
-    width: 48px;
+  .wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 130px;
+    padding: 14px;
   }
 
   .textarea {
-    height: 100px;
+    height: 102px;
+  }
+
+  .navbarInner {
+    height: 66px;
+  }
+
+  .logo {
+    height: 48px;
+    width: 48px;
+    font-size: 16.8px;
+    margin-left: 10px;
+    margin-right: 14px;
   }
 
   .navbar {
@@ -169,21 +212,34 @@
 
   .name {
     font-size: 16.72px;
+    margin-left: 0px;
   }
 
   .noteClose {
     display: none;
   }
 
-  .wrapper {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+  .noteCardContainer {
+    max-height: 450px;
+    overflow-y: auto;
+    padding: 0px 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .backBtn {
     display: block;
     padding: 0px;
     margin-top: 4px;
+  }
+
+  .sendBtn {
+    width: 21px;
+    height: 18px;
+  }
+
+  .textarea::placeholder {
+    color: #999;
+    font-size: 15.7px;
   }
 }

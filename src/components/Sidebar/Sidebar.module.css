@@ -1,5 +1,5 @@
 .sidebar {
-  width: 434px; 
+  width: 434px;
   height: 100vh;
   background: #fff;
   border-right: 1px solid #e0e0e0;
@@ -11,11 +11,10 @@
 
 .title {
   text-align: center;
-  font-size: 35px; 
-  font-weight: 600;
-  padding: 40px 32px 24px 32px; 
+  font-size: 35px;
+  font-weight: 500;
+  padding: 40px 32px 24px 32px;
   color: #000;
-
 }
 
 .groupList {
@@ -23,15 +22,19 @@
   padding: 0px;
   margin: 0;
   flex-grow: 1;
-
+  display: flex;
+  flex-direction: column;
 }
 
 .groupItem {
   display: flex;
   align-items: center;
+  height: 98px;
   gap: 14px;
-  padding: 12px 28px; 
+  padding-left: 38px;
   border-radius: 8px;
+  font-size: 24px;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
 }
@@ -45,8 +48,8 @@
 }
 
 .avatar {
-  width: 68.9px;  
-  height: 68.9px; 
+  width: 68.9px;
+  height: 68.9px;
   border-radius: 50%;
   color: #fff;
   font-weight: 600;
@@ -57,7 +60,7 @@
 }
 
 .groupName {
-  font-size: 24px; 
+  font-size: 24px;
   font-weight: 500;
   color: #000;
 }
@@ -85,6 +88,11 @@
   background: #163bb3;
 }
 
+.plusIcon {
+  width: 39px;
+  height: 68px;
+}
+
 @media screen and (max-width: 1024px) {
   .groupsOpen {
     display: block;
@@ -96,8 +104,8 @@
 
   .fab {
     position: fixed;
-    bottom: 22px;
-    right: 22px;
+    bottom: 25px;
+    right: 25px;
     width: 75px;
     height: 75px;
     left: auto;
@@ -109,11 +117,18 @@
 
   .title {
     font-size: 31.52px;
-    padding: 32px 24px 20px 24px;
+    font-weight: 500;
+    text-align: left;
+    padding: 50px 0px 23px 46px;
+  }
+
+  .groupList {
+    gap: 25px;
   }
 
   .groupItem {
-    padding: 10px 24px;
+    height: auto;
+    padding-left: 34px;
   }
 
   .avatar {
@@ -124,5 +139,10 @@
 
   .groupName {
     font-size: 18.6px;
+  }
+
+  .plusIcon {
+    width: 23px;
+    height: 39px;
   }
 }
