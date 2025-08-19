@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./PocketNotes.module.css";
 import { LockIcon } from "../../../assets/Icons";
 

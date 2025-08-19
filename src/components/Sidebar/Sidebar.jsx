@@ -1,35 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Sidebar.module.css";
-import axios from "axios";
 import { useGroups } from "../../context/GroupContext";
 import CreateGroupModal from "../CreateGroup/CreateGroupModal";
-import { FiPlus } from "react-icons/fi";
 import { AddIcon } from "../../assets/Icons";
-
-const base_url = import.meta.env.VITE_APP_BACKEND_URL;
 
 const Sidebar = () => {
   const { groups, setGroups, notesClicked, setNotesClicked } = useGroups();
-
   const [showModel, setShowModel] = useState(false);
 
   useEffect(() => {
-    const fetchGroups = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const res = await axios.get(`${base_url}/groups`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setGroups(res?.data);
-      } catch (err) {
-        console.error("Error fetching groups:", err);
-      }
-    };
-
-    fetchGroups();
-  }, []);
+    const storedGroups = JSON.parse(localStorage.getItem("groups")) || [];
+    setGroups(storedGroups);
+  }, [setGroups]);
 
   return (
     <div
@@ -66,7 +48,7 @@ const Sidebar = () => {
       </ul>
 
       <button className={styles.fab} onClick={() => setShowModel(true)}>
-        <AddIcon className={styles.plusIcon}/>
+        <AddIcon className={styles.plusIcon} />
       </button>
 
       <CreateGroupModal showModel={showModel} setShowModel={setShowModel} />

@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import styles from "./MyNotes.module.css";
-import { CiPaperplane } from "react-icons/ci";
 import { BackArrow, SendIcon } from "../../assets/Icons";
 import { useGroups } from "../../context/GroupContext";
-import { useNavigate } from "react-router-dom";
-
-const base_url = import.meta.env.VITE_APP_BACKEND_URL;
 
 const MyNotes = () => {
   const { notesClicked, setNotesClicked } = useGroups();
@@ -15,55 +10,36 @@ const MyNotes = () => {
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const token = localStorage.getItem("token");
-
-  const navigate = useNavigate();
-
   useEffect(() => {
     if (!notesClicked?.name) return;
 
-    const fetchNotes = async () => {
-      try {
-        const res = await axios.get(
-          `${base_url}/notes?group=${notesClicked.name}`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
-        setNotes(res.data);
-      } catch (err) {
-        console.error("Error fetching notes:", err);
-      }
-    };
+    const storedNotes =
+      JSON.parse(localStorage.getItem(`notes-${notesClicked.name}`)) || [];
+    setNotes(storedNotes);
+  }, [notesClicked]);
 
-    fetchNotes();
-  }, [notesClicked, token]);
-
-  const handleSend = async () => {
-    console.log("sned clicked");
+  const handleSend = () => {
     if (!noteText.trim()) return;
+
+    setLoading(true);
 
     const newNote = {
       content: noteText.trim(),
-      group: notesClicked.name,
       createdAt: new Date().toISOString(),
-      groupName: notesClicked.name,
+      updatedAt: new Date().toISOString(),
     };
 
-    try {
-      setLoading(true);
-      const res = await axios.post(`${base_url}/create/note`, newNote, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+    const updatedNotes = [...notes, newNote];
+    setNotes(updatedNotes);
 
-      const savedNote = res.data || newNote;
-      setNotes((prev) => [savedNote, ...prev]);
-      setNoteText("");
-    } catch (err) {
-      console.error("Error creating note:", err);
-    } finally {
-      setLoading(false);
-    }
+    // Save to localStorage
+    localStorage.setItem(
+      `notes-${notesClicked.name}`,
+      JSON.stringify(updatedNotes)
+    );
+
+    setNoteText("");
+    setLoading(false);
   };
 
   return (
@@ -72,6 +48,7 @@ const MyNotes = () => {
         notesClicked ? styles.noteOpen : styles.noteClose
       }`}
     >
+      {/* Navbar */}
       <div className={styles.navbar}>
         <div className={styles.navbarInner}>
           <div className={styles.groupName}>
@@ -89,16 +66,6 @@ const MyNotes = () => {
             </div>
             <span className={styles.name}>{notesClicked.name}</span>
           </div>
-
-          <button
-            className={styles.logoutBtn}
-            onClick={() => {
-              localStorage.removeItem("token");
-              navigate("/login");
-            }}
-          >
-            Logout
-          </button>
         </div>
       </div>
 
@@ -146,8 +113,9 @@ const MyNotes = () => {
             />
             <div onClick={handleSend}>
               <SendIcon
-                className={styles.sendBtn}
-                style={{ opacity: loading ? 0.5 : 1 }}
+                className={`${styles.sendBtn} ${
+                  noteText.trim().length > 0 ? styles.active : styles.inactive
+                }`}
               />
             </div>
           </div>

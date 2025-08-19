@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styles from "./App.module.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import MyNotes from "./components/MyNotes/MyNotes";
@@ -10,7 +9,7 @@ function App() {
   const { notesClicked, setNotesClicked } = useGroups();
 
   useEffect(() => {
-     setNotesClicked("");
+    setNotesClicked("");
   }, []);
 
   return (
@@ -18,11 +17,7 @@ function App() {
       <Sidebar />
 
       <div className={styles.mainContent}>
-        {notesClicked ? (
-          <MyNotes/>
-        ) : (
-          <PocketNotes />
-        )}
+        {notesClicked ? <MyNotes /> : <PocketNotes />}
       </div>
     </div>
   );

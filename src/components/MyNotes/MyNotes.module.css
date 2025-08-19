@@ -154,7 +154,6 @@
   bottom: 24px;
   right: 24px;
   font-size: 22px;
-  color: #001f8b;
   cursor: pointer;
 }
 
@@ -168,6 +167,16 @@
 
 .backBtn {
   display: none;
+}
+
+.inactive {
+  color: #5c5c5c;
+  cursor: not-allowed;
+}
+
+.active {
+  color: #001f8b;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1535px) {

@@ -7,7 +7,7 @@ export const SendIcon = ({ className }) => (
   >
     <path
       d="M0 17.6842V11.0526L8.8421 8.84211L0 6.63158V0L21 8.84211L0 17.6842Z"
-      fill="#001F8B"
+      fill="currentColor"
     />
   </svg>
 );
