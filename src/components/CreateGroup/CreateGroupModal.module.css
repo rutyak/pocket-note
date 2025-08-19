@@ -226,6 +226,8 @@
   }
 
   .createBtn button {
+    width: 186px;
+    height: 32px;
     font-weight: 400;
     font-size: 17px;
   }

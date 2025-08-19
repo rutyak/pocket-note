@@ -186,6 +186,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .noteCard p {
+    font-size: 13px;
+  }
+
   .noteOpen {
     display: block;
   }
@@ -250,5 +254,9 @@
   .textarea::placeholder {
     color: #999;
     font-size: 15.7px;
+  }
+
+  .noteFooter {
+    font-size: 13.5px;
   }
 }
